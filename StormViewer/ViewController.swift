@@ -16,6 +16,9 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set the title in the navigation controller
+        title = "Storm Viewer"
+        
         // Load the list of files that are inside the app bundle
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
