@@ -10,9 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // Create an array of all the “nssl” pictures
+    var pictures = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Load the list of files that are inside the app bundle
+        let fm = FileManager.default
+        let path = Bundle.main.resourcePath!
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        
+        // Loop through the images for images beginning with "nssl"
+        for item in items {
+            if item.hasPrefix("nssl") {
+                pictures.append(item)
+            }
+        }
+        print(pictures)
     }
 
     override func didReceiveMemoryWarning() {
