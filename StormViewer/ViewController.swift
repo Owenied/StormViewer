@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
     // Create an array of all the “nssl” pictures
     var pictures = [String]()
@@ -29,12 +29,91 @@ class ViewController: UIViewController {
         }
         print(pictures)
     }
+    
+    
+    // The number of rows in the scction based on the size of the array
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
+        return pictures.count
+    }
+    
+    // Recycle cells that are required to display each row
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
+        cell.textLabel?.text = pictures[indexPath.row]
+        return cell
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
